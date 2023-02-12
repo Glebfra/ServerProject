@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  django:
+    container_name: django-server
+    build: ./app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app/:/usr/src/app/
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+
+  database:
+    container_name: mysql_database
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
+  php_my_admin:
+    container_name: php_my_admin
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    links:
+      - database
+    environment:
+      PMA_HOST: database
+      PMA_PORT: ${PMA_PORT}
+      PMA_ARBITRARY: ${PMA_ARBITRARY}
