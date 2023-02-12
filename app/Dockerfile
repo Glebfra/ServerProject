@@ -5,10 +5,8 @@ ENV PYTHONUNBUFFERED 1
 
 WORKDIR /app
 
-RUN python -m venv env
-ENV PATH="/env/bin:$PATH"
-
-COPY ./requirements.txt /app/requirements.txt
-RUN pip install -Ur requirements.txt
+COPY ./requirements.txt requirements.txt
+RUN python3 -m pip install --upgrade pip \
+    pip install -r requirements.txt
 
 COPY . .
