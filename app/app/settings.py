@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_yasg',
+    'messenger',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +83,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'database',
-        'PORT': 3306
+        'PORT': 3306,
     }
 }
 
