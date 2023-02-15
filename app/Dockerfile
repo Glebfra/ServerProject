@@ -9,6 +9,6 @@ RUN python -m venv env
 ENV PATH="/env/bin:$PATH"
 
 COPY ./requirements.txt /app/requirements.txt
-RUN pip install -Ur requirements.txt
+RUN pip install -r requirements.txt
 
 COPY . .

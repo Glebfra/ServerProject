@@ -1,5 +1,5 @@
 Django~=4.1.6
-pip~=22.0.2
+pip==23.0
 Jinja2~=3.1.2
 pytz~=2022.7.1
 asgiref~=3.6.0
