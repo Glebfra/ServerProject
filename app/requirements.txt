@@ -1,5 +1,5 @@
 Django~=4.1.6
-pip~=22.0.2
+pip==23.0
 Jinja2~=3.1.2
 pytz~=2022.7.1
 asgiref~=3.6.0
@@ -18,3 +18,8 @@ simplejson~=3.18.3
 setuptools~=59.6.0
 djangorestframework~=3.14.0
 drf-yasg~=1.21.5
+cryptography~=39.0.1
+packaging~=23.0
+inflection~=0.5.1
+pycparser~=2.21
+PyJWT~=2.6.0

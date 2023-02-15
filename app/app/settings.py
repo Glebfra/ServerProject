@@ -32,14 +32,19 @@ ALLOWED_HOSTS = str(os.environ.get('ALLOWED_HOSTS')).split(' ')
 # Application definition
 
 INSTALLED_APPS = [
+    # Django standard apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Rest framework
     'drf_yasg',
-    'messenger',
+
+    # apps
+    'authentication.apps.AuthenticationConfig',
 ]
 
 MIDDLEWARE = [
@@ -105,6 +110,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'authentication.User'
+
+SWAGGER_SETTINGS = {
+   'DEFAULT_INFO': 'import.path.to.urls.api_info',
+}
 
 
 # Internationalization
