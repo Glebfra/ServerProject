@@ -44,8 +44,7 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     # apps
-    'authentication',
-    'messenger',
+    'authentication.apps.AuthenticationConfig',
 ]
 
 MIDDLEWARE = [
@@ -113,6 +112,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'authentication.User'
+
+SWAGGER_SETTINGS = {
+   'DEFAULT_INFO': 'import.path.to.urls.api_info',
+}
 
 
 # Internationalization
