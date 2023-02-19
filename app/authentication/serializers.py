@@ -25,11 +25,10 @@ class LoginSerializer(serializers.ModelSerializer):
         min_length=8,
         write_only=True
     )
-    token = serializers.CharField(max_length=255, read_only=True)
 
     class Meta:
         model = User
-        fields = ['email', 'password', 'token']
+        fields = ['email', 'password']
 
     def login(self, validated_data):
         return User.objects.select_related(*validated_data)
