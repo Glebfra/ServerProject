@@ -18,10 +18,10 @@ services:
 
   django:
     container_name: django-server
-    build: ./app
+    build: ${DJANGO_APP_PATH}
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./app:/app
+      - ${DJANGO_APP_PATH}:/app
     ports:
       - "8000:8000"
     depends_on:
@@ -41,3 +41,19 @@ services:
       PMA_HOST: database
       PMA_PORT: ${PMA_PORT}
       PMA_ARBITRARY: ${PMA_ARBITRARY}
+
+#  nginx:
+#    container_name: nginx
+#    image: nginx
+#    restart: always
+#    build: ./nginx
+#    volumes:
+#      - ./logs/nginx/:/logs/nginx
+#      - ${FRONT_APP_PATH}:/front
+#    ports:
+#      - "80:80"
+#    depends_on:
+#      - django
+#    environment:
+#      NGINX_HOST: ${NGINX_HOST}
+#      NGINX_PORT: ${NGINX_PORT}
